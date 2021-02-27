@@ -1,0 +1,16 @@
+// Place all the styles related to the homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+//---header---//
+nav {
+    border-bottom:solid 1px grey;
+}
+.navbar-brand span{
+    font-size:50px;
+}
+.navbar-nav li .nav-link{
+    border:solid 1px grey; 
+    border-radius:5px;
+    margin:10px;
+}
