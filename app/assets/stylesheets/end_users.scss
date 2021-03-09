@@ -1,3 +1,102 @@
 // Place all the styles related to the end_users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//----------------------------------show--------------------------------------//
+#mypage .pagetitle {
+    width: 15%;
+    margin: 50px 0 20px 100px ;
+    padding: 10px;
+    background-color: #DDDDDD ;
+    text-align: center;
+}
+#mypage .user_info h5, .delivery h5, .ordered h5, .out h5, .change_password h5{
+    display: inline-block;
+    margin-right: 5%;
+    font-weight: 700;
+    vertical-align: bottom;
+    margin-top: 30px;
+}
+#mypage .user_detail{
+    border: solid 1px black;
+    width: 50%;
+    margin: 3% 0;
+}
+#mypage .user_name, .user_name_kana, .user_postcode, .user_adress, .user_phone_number, .user_email{
+    border-right: solid 1px black;
+    border-bottom: solid 1px black;
+    background-color: #FFDBC9;
+    padding: 3%;
+    width: 30%;
+}
+#mypage .body_user_name, .body_user_name_kana, .body_user_adress, 
+.body_user_phone_number, .body_user_postcode, .body_user_email {
+    border-bottom: solid 1px black;
+    margin-left: 1%;
+}
+#mypage .link_delivery {
+    margin-left: 7%;
+}
+#mypage .ordered_link, .out_link {
+    margin-left: 5%;
+}
+
+//------------------------------------------edit------------------------------------------//
+#user_edit h4{
+    width: 15%;
+    margin: 50px 0 50px 100px ;
+    padding: 10px;
+    background-color: #DDDDDD	;
+}
+#user_edit .field a{
+    width: 30%;
+    margin-right: 50px;
+}
+#user_edit .row .list{
+    margin: 25px;
+}
+#user_edit .row .field1{
+    margin: 20px 40px 20px -11px;
+}
+#user_edit .row .field2{
+    margin: 20px 40px 20px -25px;
+}
+#user_edit .row .field{
+    margin: 20px;
+}
+#user_edit .row .field input {
+    border: solid 1px black;
+    border-radius: 5px;
+}
+#user_edit .row .field1 input {
+    border: solid 1px black;
+    border-radius: 5px;
+}
+#user_edit .row .field2 input {
+    border: solid 1px black;
+    border-radius: 5px;
+}
+#user_edit .row .actions input{
+    width: 20%;
+    margin-left: 30px;
+}
+//------------------------------------------out------------------------------------------//
+#user_status h5{
+    text-align: center;
+    margin-top: 10%;
+    font-weight: 500;
+}
+#user_status p{
+    text-align: center;
+    margin-top: 2%;
+}
+#user_status .link_out{
+    display: flex;
+    text-align: center;
+    margin-top: 4%;
+    margin-left: 38%;
+}
+#user_status .not_out{
+    margin-right: 5%;
+}
+

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   }
   namespace :admin do
    get 'top/top'
+   resources :end_users, only: [:index, :show, :edit, :update]
     
   end
   
@@ -20,11 +21,11 @@ Rails.application.routes.draw do
     registrations: 'end_users/registrations'
   }
   scope module: :public do
-    get "/end_users", to: 'end_users#show'
-    get '/end_users/edit',to: 'end_users#edit'
-    patch '/end_users',to: 'end_users#update'
-    get 'end_users/out'
-    patch 'end_users/quit'
+    get '/end_user',to: 'end_users#show'
+    get '/end_user/edit',to: 'end_users#edit'
+    patch '/end_user',to: 'end_users#update'
+    get 'end_user/out',to: 'end_users#out'
+    patch 'end_user/quit',to: 'end_users#quit'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

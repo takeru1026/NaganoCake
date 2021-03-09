@@ -1,0 +1,34 @@
+//------------------------------------------index------------------------------------------//
+#admin_enduser_index h5 {
+    width: 10%;
+    margin: 10% 0 0 17%;
+    padding: 1%;
+    background-color: #DDDDDD;
+    text-align: center;
+
+    
+}
+#admin_enduser_index .end_user_table {
+    width: 70%;
+    margin: 5% auto;
+}
+#admin_enduser_index .end_user_table_head{
+    border-top: 1px solid grey;
+    background-color: #FFFFDD;
+}
+#admin_enduser_index .end_user_table_head th {
+    padding: 2%;
+}
+#admin_enduser_index .end_user_table_body{
+    border-top: 1px solid grey;
+}
+#admin_enduser_index .end_user_table_body td {
+    padding: 3% 2%;
+}
+#admin_enduser_index .valid {
+    color: #AEFFBD;
+}
+#admin_enduser_index .invalid {
+    color: #DDDDDD;
+    
+}
