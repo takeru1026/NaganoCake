@@ -1,0 +1,83 @@
+//------------------------------------------index------------------------------------------//
+#admin_item_index h5 {
+    width: 10%;
+    margin-top: 5%;
+    margin-left: 15%;
+    padding: 1%;
+    background-color: #DDDDDD;
+    text-align: center;
+    display: inline-block;
+}
+#admin_item_index .plus_button {
+    margin-left: 55%;
+    border-radius: 30px;
+    padding: 10px 14px;
+    box-shadow: 2px 2px 4px;
+}
+#admin_item_index .plus_button{
+    border:1px solid white;
+    
+}
+#admin_item_index .item_all_table {
+    width: 70%;
+    margin: 5% auto;
+    border-bottom: 1px solid grey;
+}
+#admin_item_index .item_all_table_head{
+    border-top: 1px solid grey;
+    background-color: #FFFFDD;
+}
+#admin_item_index .item_all_table_head th {
+    padding: 1%;
+}
+#admin_item_index .item_all_table_body{
+    border-top: 1px solid grey;
+}
+#admin_item_index .item_all_table_body td {
+    padding: 2% 2%;
+}
+#admin_item_index .valid {
+    color: #AEFFBD;
+}
+#admin_item_index .invalid {
+    color: #DDDDDD;
+    
+}
+//------------------------------------------new------------------------------------------//
+#admin_item_new h4{
+    width: 20%;
+    margin-top: 5%;
+    margin-left: 10%;
+    background-color: #DDDDDD;
+    text-align: center;
+    padding: 1%;
+}
+#admin_item_new .row{
+    width: 50%;
+    margin: 3% auto;
+}
+#admin_item_new .table_leftside .list_image, .list_name, .list_explain, .list_price, .list_status{
+    margin-top: 12%;
+    margin-right: 3%;
+}
+#admin_item_new .list_genre{
+    margin-top: 78%;
+}
+#admin_item_new .field_image{
+    margin-top: 5%;
+    font-size: 12px;
+}
+#admin_item_new .table_rightside .field_item_name, .field_item_explain,.field_item_genre, .field_item_price, .field_item_status{
+    margin-top: 5%;
+}
+#admin_item_new .field_item_name input,.field_item_genre input, .field_item_price input{
+    width: 70%;
+}
+#admin_item_new .field_item_explain textarea{
+    width: 70%;
+    height: 120px;
+}
+#admin_item_new .action input{
+    text-align: center;
+    margin: 0 auto;
+}

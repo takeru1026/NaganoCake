@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  namespace :admin do
+    resources :items
+    resources :genres, only:[:index, :show, :edit, :update, :create]
+  end
   root to: 'homes#index'
   get 'homes/about'
   devise_for :admin, controllers: {
@@ -26,6 +30,7 @@ Rails.application.routes.draw do
     patch '/end_user',to: 'end_users#update'
     get 'end_user/out',to: 'end_users#out'
     patch 'end_user/quit',to: 'end_users#quit'
+    resources :items, only:[:index, :show]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
