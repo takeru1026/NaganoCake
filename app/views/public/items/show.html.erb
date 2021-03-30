@@ -1,2 +1,27 @@
-<h1>Public::Items#show</h1>
-<p>Find me in app/views/public/items/show.html.erb</p>
+<div id="item_show"class="container">
+  <div class="show_item row">
+    <div class="show_item_image col-md-6">
+      <%= attachment_image_tag @item , :image, :fill, 250, 200, format: 'jpeg' %>
+    </div>
+    <div class="show_item_text col-md-6">
+      <%= form_with model: @cart_item, url: cart_items_path(item_id: @item) do |f| %>
+        <h4><%= @item.product %></h4>
+        <div class="item_explain">
+          <%= @item.product_explain %>
+        </div>
+        <div class="item_price">
+          <a> ¥<%= @item.price %></a>(税込)
+        </div>
+        <div class="cart_item_form">
+          <div class="select_amount">
+            <%= f.select :amount, [['1個',1],['2個',2],['3個',3],['4個',4],['5個',5]] %>
+          </div>
+          <%= f.hidden_field :item_id, :value => @item.id %>
+          <div class="submit_cart_item">
+            <%= f.submit "カートに入れる", class:"btn btn-success" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

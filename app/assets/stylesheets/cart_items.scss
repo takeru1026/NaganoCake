@@ -1,0 +1,80 @@
+// Place all the styles related to the cart_items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+//------------------------cart_item_index-------------------------------//
+#cart_item_index .head{
+    display: flex;
+}
+#cart_item_index h4{
+    margin-top: 2%;
+    width: 15%;
+    background-color: #DDDDDD;
+    text-align: center;
+    padding: 1%;
+}
+#cart_item_index .head .destroy_all{
+    height: 40px;
+    margin-top: 2.5%;
+    margin-left: auto;
+}
+#cart_item_index .cart_item_table{
+    width: 100%;
+    border: 1px solid black;
+    margin-top: 2%;
+}
+#cart_item_index .cart_item_head{
+    width: 100%;
+    border: 1px solid black;
+}
+#cart_item_index .cart_item_head th{
+    border-right: 1px solid black;
+    padding: 1%;
+    background-color: #FFDBC9;
+}
+#cart_item_index .cart_item_table_body tr td{
+    padding: 1%;
+    border: 1px solid black;
+}
+#cart_item_index .head_empty{
+    width: 15%;
+}
+#cart_item_index .amount_form{
+    width: 16%;
+}
+#cart_item_index .last_td{
+    text-align: center;
+}
+#cart_item_index .under_table{
+    display: flex;
+    margin-top: 5%;
+}
+#cart_item_index .total_price{
+    border: 1px solid black;
+    margin-left: auto;
+    width: 30%;
+    display: flex;
+}
+#cart_item_index .total_price_text{
+    border-right: 1px solid black;
+    background-color: #FFDBC9;
+    width: 50%;
+    padding: 5%;
+    text-align: center;
+}
+#cart_item_index .keep_shopping{
+    margin-top: 1%;
+}
+#cart_item_index .total_price_price{
+    text-align: center;
+    font-weight: 500;
+    font-size: 20px;
+    width: 50%;
+    padding: 4%;
+}
+#cart_item_index .link_input_infomation{
+    text-align: center;
+    margin: 3% 5%;
+}
+#cart_item_index{
+    
+}

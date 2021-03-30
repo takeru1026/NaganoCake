@@ -10,3 +10,27 @@ Admin.create!(
     email: "samurai@samurai.com",
     password: "samurai"
 )
+genre = Genre.create!(
+    name: "Cake"
+    )
+Item.create!(
+    [
+      {
+        genre_id: genre.id,
+        product: "ショートケーキ",
+        image_id: "images.jpg",
+        price: 4000,
+        is_selling: true,
+        product_explain: "季節限定のケーキです"
+        },
+        {
+        genre_id: genre.id,
+        product: "チョコレートケーキ",
+        image_id: "images(1).jpg",
+        price: 5000,
+        is_selling: true,
+        product_explain: "chacorateのケーキです"
+      }
+    ]
+)
+
