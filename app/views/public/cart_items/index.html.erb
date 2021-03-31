@@ -1,7 +1,7 @@
 <div id="cart_item_index" class="container">
   <div class="head">
     <h4>カート内商品</h4>
-    <%= link_to "カートを空にする", all_destroy_path, method: :delete, class:"destroy_all btn btn-danger"%>
+    <%= link_to "カートを空にする", all_destroy_path, method: :delete, data: {confirm: "カート内を空にしますか?"}, class:"destroy_all btn btn-danger"%>
   </div>
   <table class="cart_item_table">
     <thead>
@@ -18,6 +18,7 @@
       <% @cart_item.each do |cart_item| %>
       <tr>
         <td scope="row"><!--個数-->
+          <%= attachment_image_tag cart_item.item , :image, :fill, 100, 50, format: 'jpeg' %>
           <%= cart_item.item.product %>
         </td>
         <td><!--小計-->
