@@ -7,30 +7,43 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Admin.create!(
-    email: "samurai@samurai.com",
-    password: "samurai"
+    email: "golira@example.com",
+    password: "golira"
 )
-genre = Genre.create!(
-    name: "Cake"
-    )
+# テストのために以下記述
+
+Genre.create!(
+   name: "ケーキ",
+)
+
+Genre.create!(
+   name: "クッキー",
+)
+
+Genre.create!(
+   name: "チョコレート",
+)
+
+Genre.create!(
+   name: "アイスクリーム",
+)
+
+Genre.create!(
+   name: "タルト",
+)
 Item.create!(
-    [
-      {
-        genre_id: genre.id,
-        product: "ショートケーキ",
-        image_id: "images.jpg",
-        price: 4000,
-        is_selling: true,
-        product_explain: "季節限定のケーキです"
-        },
-        {
-        genre_id: genre.id,
-        product: "チョコレートケーキ",
-        image_id: "images(1).jpg",
-        price: 5000,
-        is_selling: true,
-        product_explain: "chacorateのケーキです"
-      }
-    ]
-)
+    product: "チョコレートケーキ",
+    genre_id: 1,
+    product_explain: "チョコレートケーキチョコレートケーキチョコレートケーキチョコレートケーキチョコレートケーキチョコレートケーキ",
+    price: 5500,
+    image: open("./app/assets/images/images (1).jpg")
+   )
+
+Item.create!(
+    product: "ショートケーキ",
+    genre_id: 1,
+    product_explain: "ショートケーキショートケーキショートケーキショートケーキショートケーキショートケーキ",
+    price: 4600,
+    image: open("./app/assets/images/images.jpg")
+   )
 
