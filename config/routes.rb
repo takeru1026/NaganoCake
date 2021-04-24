@@ -26,6 +26,9 @@ Rails.application.routes.draw do
     resources :items, only:[:index, :show]
     resources :cart_items, only:[:index, :create, :update, :destroy]
     delete '/cart_items', to: 'cart_items#destroy_all', as: 'all_destroy'
+    resources :orders, only:[:index, :new, :show, :create]
+    get '/orders/confirm',to: 'orders#confirm'
+    get '/orders/done',to: 'orders#done'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
