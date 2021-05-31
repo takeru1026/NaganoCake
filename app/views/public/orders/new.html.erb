@@ -1,50 +1,56 @@
 <div id="order_new"class="container">
   <div class="title">
-    <h3>購入情報入力</h3>
+    <h4>注文情報入力</h4>
   </div>
   <div class="payment_title">
      <h4>お支払い方法</h4>
   </div>
   <!-- 支払い方法選択 -->
   <div class="order_new_form">
-    <%= form_with model: @order,url: orders_path, method: :post,local: true do |f| %>
+    <%= form_with model: @order, url: orders_confirm_path, local: true do |f| %>
       <div class="payment_form">
         <div class="payment_cregit">
           <%= f.radio_button :terms_payment, "クレジット決済" %>
-          <%= f.label "クレジット決済", {value: :"クレジット決済"} %>
+          <%= f.label "クレジット決済", value: "クレジット決済" %>
         </div>
         <div class="payment_bank_transfer">
           <%= f.radio_button :terms_payment, "銀行振込" %>
-          <%= f.label "銀行振込",{value: :"銀行振込"} %>
+          <%= f.label "銀行振込",value: "銀行振込" %>
         </div>
       </div>
-      <div class="">
+      <div class="deliver-title">
         <h4>配送先</h4>
       </div>
       <div class="deliver_form">
         <div class="my_address">
-          <%= f.radio_button :address, "ご自身の住所" %>
-          <%= f.label "ご自身の住所",{value: :"ご自身の住所", style: "display: inline-block;"} %><br />
+          <%= f.radio_button :address_option,0 %>
+          <%= f.label :address,"ご自身の住所", value: 0, style: "display: inline-block;" %><br />
           <%= "〒" + " " + current_end_user.postcode + " " + current_end_user.address  %><br />
           <%= current_end_user.last_name + " " + current_end_user.first_name %>
         </div>
         <div class="select_address">
-          <%= f.radio_button :address, "登録済み住所から選択" %>
-          <%= f.label "登録済み住所から選択",{value: :"登録済み住所から選択", style: "display: inline-block;"} %><br />
-          <%= f.select :address, @ship_address.all.map {|ship| ["〒" + " " + ship.postcode + " " + ship.address + ship.addresser]},include_blank: " 登録してある配送先住所から選択" %>
+          <%= f.radio_button :address_option,1 %>
+          <%= f.label :address,"登録済み住所から選択",value: 1, style: "display: inline-block;" %><br />
+          <%= f.select :registered_address, @ship_address.all.map {|ship| ["#{ship.postcode}""#{ship.address}""#{ ship.addresser}", ship[:id]]},include_blank: " 登録してある配送先住所から選択" %>
         </div>
         <div class="new_address">
-          <%= f.radio_button :address, "新規配送先" %>
-          <%= f.label "新規配送先",{value: :"新規配送先", style: "display: inline-block;"} %><br />
-          <%= f.label :"郵便番号" %>
-          <%= f.text_field :postcode%><br />
-          <%= f.label :"住所" %>
-          <%= f.text_field :address%><br />
-          <%= f.label :"宛名" %>
-          <%= f.text_field :addresser%>
+          <%= f.radio_button :address_option,2 %>
+          <%= f.label :address,"新規配送先",value: 2, style: "display: inline-block;" %><br />
+          <div class="postcode">
+            <%= f.label :"郵便番号（ハイフンなし）" %>
+            <%= f.text_field :postcode, value: @address.postcode %>
+          </div>
+          <div class="address">
+            <%= f.label :"住所" %>
+            <%= f.text_field :address, value: @address.address %>
+          </div>
+          <div class="addresser">
+            <%= f.label :"宛名" %>
+            <%= f.text_field :addresser, value: @address.addresser %>
+          </div>
         </div>
         <div class="submit_form">
-          <%= f.submit "確認登録画面へ進む", class:"btn btn-success" %>
+          <%= f.submit "確認登録画面へ進む", class:"btn btn-primary" %>
         </div>
       </div>
       

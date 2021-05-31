@@ -1,0 +1,95 @@
+<div id="admin_order_show" class="container">
+  <div class="row">
+    <h4 class="title">注文履歴詳細</h4>
+  </div>
+  
+  <div class="row">
+    <h5 class="sub-title col-xs-2"><b>購入者</b></h5>
+    <p class="order-info col-xs-10">
+      <%= link_to "#{@order.end_user.last_name}#{@order.end_user.first_name}", admin_end_user_path(@order.end_user) %>
+    </p>
+  </div>
+  
+  <div class="row">
+    <h5 class="sub-title col-xs-2"><b>配送先</b></h5>
+    <p class="order-info col-xs-10">
+      〒<%= @order.postcode %><br>
+      住所：<%= @order.address %><br>
+      宛名：<%= @order.addresser %>
+    </p>
+  </div>
+  
+  <div class="row">
+    <h5 class="sub-title col-xs-2"><b>支払方法</b></h5>
+    <p class="order-info col-xs-10"><%= @order.terms_payment %></p>
+  </div>
+  
+  <div class="row">
+    <h5 class="sub-title col-xs-2"><b>注文ステータス</b></h5>
+    <div class="order-info col-xs-10">
+      <%= form_with model: [:admin, @order] do |f| %>
+        <%= f.select :status, Order.statuses.keys.to_a, {include_blank: @order.status} %> 
+        <%= f.submit "更新", class: "btn btn-success"  %>
+      <% end %>
+    </div>
+  </div>
+  
+  <div class="row row-eq-height">
+    <div class="order-item-info col-xs-8">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>商品名</th>
+            <th>単価（税込）</th>
+            <th>数量</th>
+            <th>小計</th>
+            <th>製作ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% item_total_price = 0 %>
+          <% @order.order_details.each do |order_details| %>
+            <tr>
+              <td><%= order_details.item.product %></td>
+              <td><%= order_details.price.to_s(:delimited) %></td>
+              <td><%= order_details.amount %></td>
+              <td><%= (order_details.price * order_details.amount).to_s(:delimited) %></td>
+              <td>
+                <%= form_with(model: [:admin, order_details]) do |f| %>
+                  <%= f.select :product_status, OrderDetail.product_statuses.keys.to_a, {include_blank: order_details.product_status} %>
+                  <%#= f.hidden_field :order_detail_id, :value => order_details.id %>
+                  <%= f.submit "更新", class: "btn btn-success"  %>
+                <% end %>
+              </td>
+            </tr>
+            <% item_total_price += order_details.price * order_details.amount %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  
+    <div class="price-info col-xs-3">
+      <div class="bottom">
+        <div class="row">
+          <strong class="col-xs-7">商品合計</strong>
+          <p class="col-xs-5 text-right">
+            <%= "#{item_total_price.to_s(:delimited)}円" %>
+          </p>
+        </div>
+        <div class="row">
+        <strong class="col-xs-7">送料</strong>
+        <p class="col-xs-5 text-right">
+          <%= "#{@order.postage.to_s(:delimited)}円" %>
+        </p>
+        <% amount_bill =item_total_price + @order.postage %>
+        </div>
+        <div class="row">
+          <strong class="col-xs-7">請求金額合計</strong>
+          <strong class="col-xs-5 text-right">
+            <%= "#{amount_bill.to_s(:delimited)}円" %>
+          </strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

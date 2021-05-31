@@ -4,8 +4,10 @@ Rails.application.routes.draw do
     resources :end_users, only: [:index, :show, :edit, :update]
     resources :items
     resources :genres, only:[:index, :show, :edit, :update, :create]
+    resources :orders, only:[:index, :show, :update]
+    resources :order_details, only:[:update]
   end
-  root to: 'homes#index'
+  root to: 'homes#top'
   get 'homes/about'
   devise_for :admin, controllers: {
     sessions:      'admin/sessions',
@@ -26,9 +28,10 @@ Rails.application.routes.draw do
     resources :items, only:[:index, :show]
     resources :cart_items, only:[:index, :create, :update, :destroy]
     delete '/cart_items', to: 'cart_items#destroy_all', as: 'all_destroy'
-    resources :orders, only:[:index, :new, :show, :create]
     get '/orders/confirm',to: 'orders#confirm'
+    post '/orders/confirm',to: 'orders#confirm'
     get '/orders/done',to: 'orders#done'
+    resources :orders, only:[:index, :new, :show, :create]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

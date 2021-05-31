@@ -1,0 +1,32 @@
+//------------------------orders_new-------------------------------//
+#order_new .title{
+    width: 20%;
+    background-color: #DDDDDD ;
+    text-align: center;
+    margin: 3% 0 0 10%;
+}
+#order_new .payment_title, .deliver-title {
+    margin: 2% 0 0 5%;
+}
+#order_new .payment_form, .deliver_form {
+    margin-left: 10%;
+}
+#order_new .select_address, .new_address {
+    margin-top: 3%;
+}
+#order_new .select_address select {
+    width: 60%;
+}
+#order_new .postcode label {
+    margin-right: 2%;
+}
+#order_new .address label, .addresser label {
+    margin-right: 18%;
+}
+#order_new .address input {
+    width: 70%;
+}
+#order_new .submit_form{
+    text-align: center;
+    margin-top: 2%;
+}
