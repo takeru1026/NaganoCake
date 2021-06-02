@@ -33,6 +33,12 @@
                 <li><a class=" nav-link text-secondary" href="/admin/genres"> ジャンル一覧</a></li>
                 <li><a class="nav-link text-secondary" rel="nofollow"  href="/admin/sign_out"> ログアウト</a></li>
               </ul>
+              <div class="search text-right">
+                <%= search_form_for @search, url: search_admin_items_path do |f| %>
+                  <%= f.search_field :product_cont, class: 'form-search', placeholder: "検索" %>
+                  <%= f.submit "検索" %>
+                <% end %>
+              </div>
             <% else %>
               <ul class="navbar-nav ml-auto">
                 <li><a class=" nav-link " href="#"> About </a></li>&nbsp; &nbsp;

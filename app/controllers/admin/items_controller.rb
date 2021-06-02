@@ -1,7 +1,8 @@
 class Admin::ItemsController < ApplicationController
   before_action :authenticate_admin!
   def index
-    @items=Item.all
+     @search = Item.ransack(params[:q])
+      @items = @search.result
   end
 
   def new
@@ -17,13 +18,12 @@ class Admin::ItemsController < ApplicationController
     end
   end
 
-  def update
-  end
+  def search
+    # application controllerで生成した@qを利用して検索する
+    @search = Item.ransack(params[:q])
+    @items = @search.result
 
-  def edit
-  end
-
-  def show
+    render :index
   end
   
   private

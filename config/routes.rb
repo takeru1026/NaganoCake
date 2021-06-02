@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   namespace :admin do
     get '/',to: 'top#top'
     resources :end_users, only: [:index, :show, :edit, :update]
-    resources :items
+    resources :items do 
+      get 'search', on: :collection
+    end
     resources :genres, only:[:index, :show, :edit, :update, :create]
     resources :orders, only:[:index, :show, :update]
     resources :order_details, only:[:update]

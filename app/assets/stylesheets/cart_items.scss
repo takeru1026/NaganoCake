@@ -5,7 +5,7 @@
 #cart_item_index .head{
     display: flex;
 }
-#cart_item_index h4{
+#cart_item_index .head h4{
     margin-top: 2%;
     width: 15%;
     background-color: #DDDDDD;
@@ -74,4 +74,12 @@
 #cart_item_index .link_input_infomation{
     text-align: center;
     margin: 3% 5%;
+}
+#cart_item_index .noitem {
+    text-align: center;
+    margin-top: 15%;
+}
+#cart_item_index .keep_shopping {
+    text-align: center;
+    margin-top: 20%;
 }

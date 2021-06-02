@@ -1,58 +1,68 @@
 <div id="cart_item_index" class="container">
-  <div class="head">
-    <h4>カート内商品</h4>
-    <%= link_to "カートを空にする", all_destroy_path, method: :delete, data: {confirm: "カート内を空にしますか?"}, class:"destroy_all btn btn-danger"%>
-  </div>
-  <table class="cart_item_table">
-    <thead>
-      <tr class="cart_item_head">
-        <th scope="col-md-4">商品名</th>
-        <th scope="col-md-2">単価</th>
-        <th scope="col-md-2">数量</th>
-        <th scope="col-md-2">小計</th>
-        <th class="head_empty"></th>
-      </tr>
-    </thead>
-    <tbody class="cart_item_table_body">
-      <% @sum = 0 %><!--初期値-->
-      <% @cart_item.each do |cart_item| %>
-      <tr>
-        <td scope="row"><!--個数-->
-          <%= attachment_image_tag cart_item.item , :image, :fill, 100, 50, format: 'jpeg' %>
-          <%= cart_item.item.product %>
-        </td>
-        <td><!--小計-->
-          <%= cart_item.item.price %>
-        </td>
-        <td class="amount_form">
-          <%= form_with model: cart_item, url: cart_item_path(cart_item) do |f|%>
-            <%= f.number_field :amount, min:1, max:100, step:1 %>
-            
-            <%= f.submit "変更", class:"btn btn-success"%>
-          <% end %>
-        </td>
-        <td><!--小計＋個数-->
-          <%= cart_item.item.price * cart_item.amount %>
-        </td>
-        <td class="last_td">
-          <%= link_to "削除する", cart_item_path(cart_item),method: :delete, class:"btn btn-danger" %>
-        </td>
-      </tr>
-      <!--初期値に小計を足し算し、更新する-->
-           <% @sum += cart_item.item.price * cart_item.amount %>
-      <% end %>
-    </tbody>
-  </table>
-  <div class="under_table">
+  <% if @cart_item.present? %>
+    <div class="head">
+      <h4>カート内商品</h4>
+      <%= link_to "カートを空にする", all_destroy_path, method: :delete, data: {confirm: "カート内を空にしますか?"}, class:"destroy_all btn btn-danger"%>
+    </div>
+    <table class="cart_item_table">
+      <thead>
+        <tr class="cart_item_head">
+          <th scope="col-md-4">商品名</th>
+          <th scope="col-md-2">単価</th>
+          <th scope="col-md-2">数量</th>
+          <th scope="col-md-2">小計</th>
+          <th class="head_empty"></th>
+        </tr>
+      </thead>
+      <tbody class="cart_item_table_body">
+        <% @sum = 0 %><!--初期値-->
+        <% @cart_item.each do |cart_item| %>
+        <tr>
+          <td scope="row"><!--個数-->
+            <%= attachment_image_tag cart_item.item , :image, :fill, 100, 50, format: 'jpeg' %>
+            <%= cart_item.item.product %>
+          </td>
+          <td><!--小計-->
+            <%= cart_item.item.price %>
+          </td>
+          <td class="amount_form">
+            <%= form_with model: cart_item, url: cart_item_path(cart_item) do |f|%>
+              <%= f.number_field :amount, min:1, max:100, step:1 %>
+              
+              <%= f.submit "変更", class:"btn btn-success"%>
+            <% end %>
+          </td>
+          <td><!--小計＋個数-->
+            <%= cart_item.item.price * cart_item.amount %>
+          </td>
+          <td class="last_td">
+            <%= link_to "削除する", cart_item_path(cart_item),method: :delete, class:"btn btn-danger" %>
+          </td>
+        </tr>
+        <!--初期値に小計を足し算し、更新する-->
+             <% @sum += cart_item.item.price * cart_item.amount %>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="under_table">
+      <div class="keep_shopping">
+        <%= link_to "買い物を続ける", root_path, class:"btn btn-primary" %>
+      </div>
+      <div class="total_price">
+        <div class="total_price_text"><b>合計金額</b></div>
+        <div class="total_price_price"><%= @sum %>円</div>
+      </div>
+    </div>
+    <div class="link_input_infomation">
+      <%= link_to "情報入力に進む", new_order_path, class:"btn btn-success"%>
+    </div>
+  <% else %>
+    <div class="head">
+      <h4>カート内商品</h4>
+    </div>
+    <div class="noitem"><h4>現在カートに商品がありません</h4></div>
     <div class="keep_shopping">
       <%= link_to "買い物を続ける", root_path, class:"btn btn-primary" %>
     </div>
-    <div class="total_price">
-      <div class="total_price_text"><b>合計金額</b></div>
-      <div class="total_price_price"><%= @sum %>円</div>
-    </div>
-  </div>
-  <div class="link_input_infomation">
-    <%= link_to "情報入力に進む", new_order_path, class:"btn btn-success"%>
-  </div>
+  <% end %>
 </div>
