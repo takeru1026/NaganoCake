@@ -1,0 +1,74 @@
+#orders_confirm .head h4{
+    margin-top: 2%;
+    width: 15%;
+    background-color: #DDDDDD;
+    text-align: center;
+    padding: 1%;
+}
+#orders_confirm .form_all {
+    display: flex;
+}
+#orders_confirm .orders_confirm_table {
+    width: 75%;
+    border: 1px solid black;
+    margin-top: 2%;
+}
+#orders_confirm .orders_confirm_head {
+    width: 100%;
+    border: 1px solid black;
+}
+#orders_confirm .orders_confirm_head th {
+    border-right: 1px solid black;
+    padding: 1%;
+    background-color: #FFDBC9;
+}
+#orders_confirm .orders_confirm_table_body tr td {
+    padding: 1%;
+    border: 1px solid black;
+}
+
+#orders_confirm .side_table {
+    display: flex;
+    width: 25%;
+    margin-top: 2%;
+}
+#orders_confirm .side_table table {
+    width: 75%;
+    margin-left: auto;
+    border: solid 1px black;
+    height: 100%;
+}
+#orders_confirm .side_table table tr {
+    border-bottom: solid 1px black;
+}
+#orders_confirm .total_price{
+    border: 1px solid black;
+    margin-left: auto;
+    width: 30%;
+    display: flex;
+}
+#orders_confirm .total_price_text{
+    border-right: 1px solid black;
+    background-color: #FFDBC9;
+    width: 50%;
+    padding: 5%;
+    text-align: center;
+}
+#orders_confirm .submit_order {
+    text-align: center;
+    margin: 3% 5%;
+}
+#orders_confirm .payment {
+    margin-top: 5%;
+}
+#orders_confirm .payment, .deliver_address {
+    display: flex;
+}
+#orders_confirm .payment p, .deliver_address p {
+    margin-left: 10%;
+    margin-top: 2%;
+}
+#orders_confirm .submit_order {
+    width: 10%;
+    margin: auto;
+}

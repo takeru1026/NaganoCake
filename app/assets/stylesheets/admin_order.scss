@@ -1,0 +1,40 @@
+//---------------------------order_index-----------------------//
+#admin_order_index .admin-order-list {
+    width: 75%;
+    margin: 5% auto;
+}
+#admin_order_index .admin-order-list h5 {
+    margin-top: 2%;
+    width: 25%;
+    background-color: #DDDDDD;
+    text-align: center;
+    padding: 1%;
+}
+#admin_order_index .table {
+    text-align: center;
+}
+#admin_order_index .table thead tr {
+    background-color: #EEEEEE;
+}
+#admin_order_index .table .link_end_user {
+    color: black;
+    text-decoration: underline;
+}
+//---------------------------order_show-----------------------//
+#admin_order_show h4 {
+    margin-top: 2%;
+    width: 25%;
+    background-color: #DDDDDD;
+    text-align: center;
+    padding: 1%;
+}
+#admin_order_show .row {
+    margin-top: 2%;
+}
+#admin_order_show .row .order-info {
+    margin-left: 3%;
+}
+#admin_order_show .price-info {
+    margin-left: 10%;
+    margin-top: 5%;
+}

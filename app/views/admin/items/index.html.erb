@@ -1,0 +1,34 @@
+<div class="container" id="admin_item_index">
+  <div class="item_title">
+    <h5>商品一覧</h5>
+    <%= link_to "✚",new_admin_item_path, class: "plus_button btn btn-outline-dark" %>
+  </div>
+  <table class="item_all_table">
+    <thead>
+      <tr class="item_all_table_head">
+        <th scope="col-md-1">商品id</th>
+        <th scope="col-md-4">商品名</th>
+        <th scope="col-md-2">税抜価格</th>
+        <th scope="col-md-4">ジャンル</th>
+        <th scope="col-md-1">ステータス</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @items.each do |item| %>
+        <tr class="item_all_table_body">
+          <td scope="row"><%= item.id %></td>
+          <td><%= item.product%></td>
+          <td><%= item.price%></td>
+          <td><%= item.genre.name%></td>
+          <td>
+            <%if item.is_selling == true %>
+              <a class="valid">販売中</a>
+            <% else %>
+              <a class="invalid">販売停止中</a>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

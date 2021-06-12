@@ -1,0 +1,50 @@
+<div class="container" id="mypage">
+  <h4 class="pagetitle">マイページ</h4>
+  <div class="user_info">
+    <h5>登録情報</h5>
+    <%= link_to "編集する", end_user_edit_path , class:"link_edit btn btn-success"%>
+  </div>
+  <table class="user_detail">
+    <tr>
+      <th class="user_name">氏名</th>
+      <td class="body_user_name">&ensp;<%= @user.last_name %>&ensp;<%= @user.first_name %></td>
+    </tr>
+    <tr>
+      <th class="user_name_kana">カナ</th>
+      <td class="body_user_name_kana">&ensp;<%= @user.last_name_kana %>&ensp;<%= @user.first_name_kana %></td>
+    </tr>  
+    <tr>
+      <th class="user_postcode">郵便番号</th>
+      <td class="body_user_postcode">&ensp;<%= @user.postcode %></td>
+    </tr>
+    <tr>
+      <th class="user_adress">住所</th>
+      <td class="body_user_adress">&ensp;<%= @user.address %></td>
+    </tr>
+    <tr>
+      <th class="user_phone_number">電話番号</th>
+      <td class="body_user_phone_number">&ensp;<%= @user.phone_number %></td>
+    </tr>
+    <tr>
+      <th class="user_email">メールアドレス</th>
+      <td class="body_user_email">&ensp;<%= @user.email %></td>
+    </tr>
+  </table>
+  <div class="change_password">
+    <h5>パスワード変更</h5>
+    <%= link_to "パスワード変更", "#", class:"btn btn-primary"%>
+  </div>
+  <div class="delivery">
+    <h5>配送先</h5>
+    <%= link_to "一覧を見る", "#", class:"link_delivery btn btn-primary"%>
+  </div>
+  <div class="ordered">
+    <h5>注文履歴</h5>
+    <%= link_to "一覧を見る", "#", class:"ordered_link btn btn-primary"%>
+  </div>
+  <div class="out">
+    <h5>退会する</h5>
+    <%= link_to "退会する", end_user_out_path, class:"out_link btn btn-primary" %>
+  </div>
+
+</div>

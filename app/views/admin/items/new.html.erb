@@ -1,0 +1,41 @@
+<div id=admin_item_new class="container">
+  <h4>商品新規登録</h4>
+  <%= form_with model: @item, url: admin_items_path do |f| %>
+    <div class="row">
+      <div class="table_leftside col-md-4">
+        <div class="list_image">画像</div>
+        <div class="list_name">商品名</div>
+        <div class="list_explain">商品説明</div>
+        <div class="list_genre">ジャンル</div>
+        <div class="list_price">税抜価格</div>
+        <div class="list_status">販売ステータス</div>
+      </div>
+      <div class="table_rightside col-md-8">
+        <div class=field_image>
+          <%=f.attachment_field :image %>
+        </div>
+        <div class=field_item_name>
+          <%=f.text_field :product%>
+        </div>
+        <div class=field_item_explain>
+          <%=f.text_area :product_explain %>
+        </div>
+        <div class=field_item_genre>
+          <%= f.collection_select :genre_id, Genre.all, :id, :name %>
+        </div>
+        <div class=field_item_price>
+          <%=f.text_field :price %>
+        </div>
+        <div class=field_item_status>
+          <%=f.radio_button :is_selling, :販売中 %>
+          <%=f.label :"販売中" %>
+          <%=f.radio_button :is_selling, :販売停止中 %>
+          <%=f.label :"販売停止中" %>
+        </div>
+        <div class="actions">
+          <%= f.submit "新規登録", class: "btn btn-success" %>
+        </div>
+    </div>
+  <% end %>
+    
+</div>

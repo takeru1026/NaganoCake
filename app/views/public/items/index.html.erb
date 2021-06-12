@@ -1,0 +1,22 @@
+<div class="container" id="item_index">
+  <h3>商品一覧</h3>
+  <div class="item_index row">
+      <% @items.each do |item|%>
+        <div class="item_all col-md-3">
+          <%= link_to item_path(item) do %>
+            <div class="item_image ">
+              <%= attachment_image_tag item , :image, :fill, 250, 175, format: 'jpeg' %>
+            </div>
+            <div class="item_body">
+              <b>
+                <%= item.product %>
+              </b></br></br>
+              <b>
+                ¥<%= item.price %>
+              </b>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+  </div>
+</div>

@@ -1,0 +1,86 @@
+<div id="orders_confirm" class="container">
+  <div class="head">
+    <h4>注文情報確認</h4>
+  </div>
+  <%= form_with model: @order, url: orders_path do |f| %>
+    <div class="form_all">
+      <table class="orders_confirm_table">
+        <thead>
+          <tr class="orders_confirm_head">
+            <th scope="col-md-4">商品名</th>
+            <th scope="col-md-2">単価</th>
+            <th scope="col-md-2">数量</th>
+            <th scope="col-md-2">小計</th>
+          </tr>
+        </thead>
+        <tbody class="orders_confirm_table_body">
+          <% @sum = 0 %><!--初期値-->
+          <% @cart_items.each do |cart_item| %>
+            <tr>
+              <td scope="row"><!--個数-->
+                <%= attachment_image_tag cart_item.item , :image, :fill, 100, 50, format: 'jpeg' %>
+                <%= cart_item.item.product %>
+              </td>
+              <td><!--小計-->
+                <%= cart_item.item.price %>
+              </td>
+              <td><!--小計-->
+                <%= cart_item.amount %>
+              </td>
+              <td><!--小計×個数-->
+                <%= cart_item.item.price * cart_item.amount %>
+              </td>
+            </tr>
+            <!--初期値に小計を足し算し、更新する-->
+            <% @sum += cart_item.item.price * cart_item.amount %>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="side_table">
+        <table>
+          <tr>
+            <th class="total_price_text">送料</th>
+            <td class="total_price_price"><%= @order.postage %>円</td>
+          </tr>
+          <tr>
+            <th class="total_price_text"><b>商品合計</b></th>
+            <td class="total_price_price"><%= @sum %>円</td>
+          </tr>
+          <tr>
+            <th class="total_price_text"><b>請求金額</b></thv>
+            <td class="total_price_price"><%= @sum + @order.postage %>円</td>
+          </tr>
+          <% @amount_claimed = @sum + @order.postage %>
+        </table>
+      </div>
+    </div>
+    <div calss="under_table">
+      <div class="payment">
+        <h4>支払方法</h4>
+  	    <p><%= @order.terms_payment %></p>
+      </div>
+      <div class="deliver_address">
+        <h4>お届け先</h4>
+        <p>
+          〒<%= @order.postcode %>&nbsp;&nbsp;<%= @order.address %>
+          </br>
+          <%= @order.addresser %>
+  		  </p>
+      </div>
+    </div>
+    <%= f.hidden_field :end_user_id , value: current_end_user.id %>
+		<%= f.hidden_field :postage , value: @order.postage %>
+		<%= f.hidden_field :terms_payment , value: @order.terms_payment %>
+		<%= f.hidden_field :amount_claimed , value: @amount_claimed %>
+		<%= f.hidden_field :status , value: @order.status %>
+		<%= f.hidden_field :address, value: @order.address %>
+		<%= f.hidden_field :postcode, value: @order.postcode %>
+		<%= f.hidden_field :addresser, value: @order.addresser %>
+		<%= f.hidden_field :postcode, value: @order.postcode %>
+  
+    <div class="submit_order">
+      <%= f.submit "注文を確定する", data: { confirm: "【確認】購入してよろしいですか？" }, class:"btn btn-success"%>
+    </div>
+  <% end %>
+</div>
+

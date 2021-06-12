@@ -1,0 +1,10 @@
+<div class="container" id="user_status">
+  <h5>本当に退会しますか？</h5>
+  <p>退会すると、会員登録情報や</p>
+  <p>これまでの購⼊履歴が閲覧できなくなります。</p>
+  <p>退会する場合は、「退会する」をクリックしてください。</p>
+  <div class="link_out">
+    <div class="not_out"><%= link_to "退会しない", end_user_path, class:"btn btn-primary"%></div>
+    <div class="out"><%= link_to "退会する", end_user_quit_path, method: :patch, data: {confirm: "本当に退会しますか？"}, class:"out btn btn-danger" %></div>
+  </div>
+</div>
